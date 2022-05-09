@@ -3,6 +3,7 @@
 """
 
 from fastapi import FastAPI, HTTPException
+from loguru import logger
 
 from model import Book
 from database import (
@@ -15,7 +16,7 @@ from database import (
 
 app = FastAPI(title="Library")
 
-origins = ['https://localhost:3000']
+logger.add('debug.log', format='{time} {level} {message}', level='INFO')
 
 
 @app.get('/books/')

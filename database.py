@@ -16,7 +16,7 @@ async def fetch_one_book(title):
     """
     Метод поиска книги по названию.
     """
-    document = await collection.find_one({"title": title})
+    document = await collection.find_one({"title": title}, {'_id': 0})
     return document
 
 
